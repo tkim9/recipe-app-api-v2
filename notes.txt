@@ -1,0 +1,46 @@
+# build using Dockerfile
+$ docker build .
+
+# build using docker compose
+$ docker-compose build
+
+# linting 
+use flake8 package
+
+# .flake8 under app folder is default flake8 config file
+# start with [flake8]
+# exclude files that we don't want to go through linting
+# run using
+$ docker-compose run --rm app sh -c "fla
+ke8"
+
+# to run using docker compose
+$ docker-compose run --rm app sh -c "flake8"
+
+# unit testing
+- use Django test suite
+- setup tests per Django app
+- run tests through Docker Compose
+$ docker-compose run --rm app sh -c "python manage.py test"
+
+# for development and testing use requirements_dev.txt
+# this is because we don't need this package for prod server
+
+# start django project on terminal
+# will add django project files in app folder
+# app . will create in current directory, don't miss the directory the dot
+# app is mapped under docker-compose.yml, volumes
+$ docker-compose run --rm app sh -c "django-admin startproject app ."
+
+# docker to start service
+# try going to 127.0.0.1:8000 after running
+$ docker-compose up
+
+# github actions
+- Create a config file at .github/workflows/checks.yml
+- Need to authenticate docker, otherwise git action uses shared IP address
+- on checks.yml file start with "---" which indicates that this is yml file
+- an action is a docker container and config set out to do certain task
+- "Checkout" is a premade action
+- Checkout makes code available inside container
+

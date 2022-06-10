@@ -1,0 +1,20 @@
+# docker version
+version: "3.9"
+
+# main block: docker can have one or more services
+# service that we have is app
+# context . -> use current directory
+services:
+  app:
+    build:
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+# and then run in cli: docker-compose build
