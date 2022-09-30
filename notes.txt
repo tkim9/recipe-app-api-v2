@@ -44,3 +44,59 @@ $ docker-compose up
 - "Checkout" is a premade action
 - Checkout makes code available inside container
 
+# tests
+- create tests.py in app or tests directory
+    - can't have both
+- create a class 
+- and add test_... methods
+- setup inputs inside test method
+- excute actual code
+- check output (ex. using assert)
+
+# test classes
+- SimpleTestCase
+- TestCase
+    - requires database integration
+
+# TDD
+- before even writing any code, write in tests.py first
+- test will then fail because you haven't even written any code yet
+- now you will go back in and start writing the code until test passes
+
+# to run test
+$ docker-compose run --rm app sh -c "python manage.py test" 
+- make sure you have __init__.py in tests/ dir
+
+# Mocking
+- Override or change behaviour of dependencies
+- Avoid unintended side effects
+- Isolate code being tested
+
+# Why use mocking
+- Avoid relying on external services
+- Avoid uninteded consequences (ex. accidentally sending emails)
+
+# How to mock code?
+- use unittest.mock
+    - MagicMock: replace real objects
+    - patch: overrides code for tests
+
+# Integrating DB
+- Will add another service to docker-compose
+- Will have to map using volumes
+
+# Django needs to know -> need to be defined in settings.py
+- Engine (type of database)
+- Hostname (IP or domain name for database)
+- Port
+- Database Name
+- Username
+- Password
+
+# Environment variables
+- Pull config values from environment variables
+- Easily passed to Docker
+- Used in local dev or prod
+
+
+
