@@ -7,6 +7,9 @@ $ docker-compose build
 # linting 
 use flake8 package
 
+# to ignore flake8, add '# noqa' at the end of the given line
+
+
 # .flake8 under app folder is default flake8 config file
 # start with [flake8]
 # exclude files that we don't want to go through linting
@@ -97,6 +100,32 @@ $ docker-compose run --rm app sh -c "python manage.py test"
 - Pull config values from environment variables
 - Easily passed to Docker
 - Used in local dev or prod
+- Single place to configure project
+- Easy to do with Python
+
+# Psycopg2
+- The package that you need to connect to database
+- Most popular PostgresSQL adaptor for python
+- Supported by Django officially
+
+# Psycopg2 installation options
+- psycopg2-binary
+    - okay for development but not good for production
+- psycopg2
+    
+
+# Django ORM (Object Relational Mapper)
+- Abstraction layer for data (mysql, postgres... etc), use any db
+- Django handles database structure and changes
+- focus on python code
+
+# Using ORM
+1. define models
+2. generate migration files
+3. setup database
+4. store data
+
+
 
 
 
